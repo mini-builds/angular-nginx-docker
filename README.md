@@ -1,27 +1,21 @@
-# AngularNginxDocker
+This is the repo for an article about Dockerising an Angular app check it out here: https://www.minibuilds.io/articles/2021-03-25-angular-nginx-docker/.
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.2.1.
+### Build the Angular project
 
-## Development server
+```
+ng build --prod
+```
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+### Build the Docker image
 
-## Code scaffolding
+```
+docker build . -t minibuilds.io/angular-nginx-docker
+```
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+### Run the Docker container
 
-## Build
+```
+docker run --rm -p 80:80 minibuilds.io/angular-nginx-docker
+```
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+Navigate to http://localhost/ to see it in action.
